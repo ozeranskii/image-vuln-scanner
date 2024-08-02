@@ -2,14 +2,14 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, ClassVar
 
-from image_vuln_scanner.k8s.client import KubernetesClient
-from image_vuln_scanner.k8s.extractor import ResourceImageExtractor
-from image_vuln_scanner.report.generator import ReportGenerator
-from image_vuln_scanner.scanners.grype import GrypeImageScanner
-from image_vuln_scanner.scanners.trivy import TrivyImageScanner
+from .k8s.client import KubernetesClient
+from .k8s.extractor import ResourceImageExtractor
+from .report.generator import ReportGenerator
+from .scanners.grype import GrypeImageScanner
+from .scanners.trivy import TrivyImageScanner
 
 if TYPE_CHECKING:
-    from image_vuln_scanner.scanners.base import BaseImageScanner
+    from .scanners.base import BaseImageScanner
 
 
 class ImageScanningService:

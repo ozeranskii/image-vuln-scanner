@@ -3,7 +3,7 @@ import signal
 
 import click
 
-from image_vuln_scanner.service import ImageScanningService
+from .service import ImageScanningService
 
 
 @click.command()
