@@ -1,0 +1,81 @@
+[tool.poetry]
+name = "image_vuln_scanner"
+version = "0.1.0"
+description = "A CLI tool for scanning Docker images for vulnerabilities using Trivy and Grype."
+authors = ["Sergei Ozeranskii <sergey.ozeranskiy@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+keywords = [
+    "vulnerability",
+    "scanner",
+    "k8s",
+    "trivy",
+    "grype",
+    "cli",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Typing :: Typed",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Framework :: AsyncIO",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+tqdm = "^4.66.4"
+click = "^8.1.7"
+
+
+[tool.poetry.scripts]
+image-vuln-scanner = "image_vuln_scanner.cli:main"
+
+
+[tool.poetry.group.linters.dependencies]
+isort = "^5.13.2"
+ruff = "^0.5.5"
+
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["ALL"]
+
+ignore = [
+    "ANN",      # Type annotations
+    "D100",     # Missing docstring in public module
+    "D104",     # Missing docstring in public package
+    "D211",     # No blank lines allowed before class docstring
+    "D213",     # Multi-line docstring summary should start at the second line
+    "D101",     # Missing docstring in public class
+    "D102",     # Missing docstring in public method
+    "D103",     # Missing docstring in public function
+    "D107",     # Missing docstring in `__init__`
+    "D105",     # Missing docstring in magic method
+    "D106",     # Missing docstring in public nested class
+    "TD002",    # Missing author in TODO
+    "TD003",    # Missing issue link on the line following this TODO
+    "RUF001",   # String contains ambiguous {}. Did you mean {}?
+    "RUF002",   # Docstring contains ambiguous {}. Did you mean {}?
+    "RUF003",   # Comment contains ambiguous {}. Did you mean {}?
+    "PLR0913",  # Too many arguments in function definition
+    "COM812",
+    "ISC001",
+]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
